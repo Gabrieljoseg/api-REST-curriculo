@@ -28,9 +28,9 @@ const getCurriculoByNome = (request, response) => {
 }
 
 const createCurriculo = (request, response) => {
-  const { nome, sobrenome, email, telefone, formacao_academica, inicio_curso, fim_curso } = request.body
+  const { nome, sobrenome, email, telefone, formacao_academica, curso, inicio_curso, fim_curso } = request.body
 
-  pool.query('INSERT INTO curriculo (nome, sobrenome, email, telefone, formacao_academica, inicio_curso, fim_curso) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', [nome, sobrenome, email, telefone, formacao_academica, inicio_curso, fim_curso], (error, results) => {
+  pool.query('INSERT INTO curriculo (nome, sobrenome, email, telefone, formacao_academica, curso, inicio_curso, fim_curso) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *', [nome, sobrenome, email, telefone, formacao_academica, curso, inicio_curso, fim_curso], (error, results) => {
     if (error) {
       throw error
     }
@@ -40,11 +40,11 @@ const createCurriculo = (request, response) => {
 
 const updateCurriculo = (request, response) => {
   const id = parseInt(request.params.id)
-  const { nome, sobrenome, email, telefone, formacao_academica, inicio_curso, fim_curso } = request.body
+  const { nome, sobrenome, email, telefone, formacao_academica, curso, inicio_curso, fim_curso } = request.body
 
   pool.query(
     'UPDATE curriculo SET nome = $1, sobrenome = $2, email = $3, telefone = $4, fomracao_academica = $5, inicio_curso = $6, fim_curso = $7 WHERE id = $8',
-    [ nome, sobrenome, email, telefone, formacao_academica, inicio_curso, fim_curso, id],
+    [ nome, sobrenome, email, telefone, formacao_academica, curso, inicio_curso, fim_curso, id],
     (error, results) => {
       if (error) {
         throw error
