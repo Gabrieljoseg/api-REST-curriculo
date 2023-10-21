@@ -1,8 +1,7 @@
-require('dotenv').config();
-const express = require('express'); 
-const bodyParser = require('body-parser'); 
+const express = require('express');
+const bodyParser = require('body-parser');
 const app = express();
-const db = require('./queries')
+const db = require('./queries');
 const port = 3000;
 
 app.use(bodyParser.json());
@@ -14,18 +13,16 @@ app.use(
 );
 
 app.get('/', (request, response) => {
-  response.json({ info: 'Esta API foi feita por Gabriel J. e você pode usá-la para manusear informações de currículo' });
+  response.json({ info: 'Esta API foi feita por Gabriel J. e você pode usá-la para manipular informações de currículo' });
 });
 
-app.get('/curriculos', db.getCurriculos)
-app.get('/curriculos/pessoa/:nome', db.getCurriculoByNome)
-app.post('/curriculos', db.createCurriculo)
-app.put('/curriculos/:id', db.updateCurriculo)
-app.delete('/curriculos/:id', db.deleteCurriculo)
-
+app.get('/curriculos', db.getCurriculos);
+app.get('/curriculos/pessoa/:nome', db.getCurriculoByNome);
+app.post('/curriculos', db.createCurriculo);
+app.put('/curriculos/:id', db.updateCurriculo);
+app.delete('/curriculos/:id', db.deleteCurriculo);
 
 app.listen(port, () => {
   console.log(`App running on port ${port}.`);
-});
-
-
+  }
+);
