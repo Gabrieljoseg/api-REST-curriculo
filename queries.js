@@ -54,7 +54,7 @@ const updateCurriculo = (request, response) => {
   )
 }
 
-const deleteUser = (request, response) => {
+const deleteCurriculo = (request, response) => {
   const id = parseInt(request.params.id)
 
   pool.query('DELETE * FROM curriculo WHERE id = $1', [id], (error, results) => {
