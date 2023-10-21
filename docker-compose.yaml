@@ -1,0 +1,8 @@
+version: '3'
+services:
+  my-service:
+    image: api-curriculo
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE: "postgresql://postgres:6eKsNlWwIJdbxvEy@db.ovpcpzngrjakaabavnnf.supabase.co:5432/postgres"
