@@ -1,6 +1,6 @@
 const Pool = require('pg').Pool
 const pool = new Pool({
-  connectionString: DATABASE,
+  connectionString: process.env.DATABASE,
 });
 
 const getCurriculos= (request, response) => {
